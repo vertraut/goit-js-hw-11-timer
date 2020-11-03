@@ -37,7 +37,7 @@ h1 {
   border-radius: 8px;
   display: flex;
   flex-direction: column;
-  min-width: 60px;
+  min-width: 70px;
 }
 
 .timer .value {
