@@ -5,6 +5,7 @@ class CountdownTimer {
     this.timerEl = document.querySelector(timerID); // находим таймер на странице
     this.runTimer(); //запускам таймер
     this.onTickUI = onTick; // получаем ссылкуна внешнюю функцию
+    this.timerCounter(); // сразу выполняем подсчет таймера и отображем его на странице, т.к. следующее выполнение будет только через секунду
   }
 
   pad(value) {
@@ -14,10 +15,14 @@ class CountdownTimer {
 
   runTimer() {
     setInterval(() => {
-      this.dateEventCalculated = this.targetDate - Date.now(); //получаем разницу дат
-      this.dateNowCalculated = this.timerSeparator(this.dateEventCalculated); //получаем объект в котором отделены дним, часы, минуты и секунды
-      this.onTickUI(this.dateNowCalculated, this.timerEl); //UI отрисовка таймера
+      this.timerCounter();
     }, 1000);
+  }
+
+  timerCounter() {
+    this.dateEventCalculated = this.targetDate - Date.now(); //получаем разницу дат
+    this.dateNowCalculated = this.timerSeparator(this.dateEventCalculated); //получаем объект в котором отделены дним, часы, минуты и секунды
+    this.onTickUI(this.dateNowCalculated, this.timerEl); //UI отрисовка таймера
   }
 
   timerSeparator(time) {
