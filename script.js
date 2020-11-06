@@ -88,3 +88,9 @@ new CountdownTimer({
   targetDate: new Date("Jan 1, 2022"),
   onTick: uptadeTimerUI,
 });
+
+new CountdownTimer({
+  timerID: "#timer-3",
+  targetDate: new Date("Aug 8, 2021"),
+  onTick: uptadeTimerUI,
+});
