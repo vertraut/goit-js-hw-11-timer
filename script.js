@@ -1,11 +1,10 @@
 class CountdownTimer {
   constructor({ timerID, targetDate, onTick }) {
     //получаем номер таймера, целевую дату и функцию для отрисовки UI
+    this.onTickUI = onTick; // получаем ссылкуна внешнюю функцию
     this.targetDate = new Date(targetDate); //целевая дата в мс
     this.timerEl = document.querySelector(timerID); // находим таймер на странице
     this.runTimer(); //запускам таймер
-    this.onTickUI = onTick; // получаем ссылкуна внешнюю функцию
-    this.timerCounter(); // сразу выполняем подсчет таймера и отображем его на странице, т.к. следующее выполнение будет только через секунду
   }
 
   pad(value) {
@@ -14,11 +13,7 @@ class CountdownTimer {
   }
 
   runTimer() {
-    //this.timerCounter();
-    //если вызвать функию выше, то будет ошибка (скриншот по ссылке) http://prntscr.com/vdamct
-    //но ниже эта функция в таймере вызывается без проблем. не могу понять причину.
-    //пришлось эту функцию вынести в коструктор, иначе получается задержка отображения таймера
-
+    this.timerCounter(); // сразу выполняем подсчет таймера и отображем его на странице, т.к. следующее выполнение будет только через секунду
     setInterval(() => {
       this.timerCounter();
     }, 1000);
