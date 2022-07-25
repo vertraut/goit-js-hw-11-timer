@@ -79,18 +79,18 @@ function uptadeTimerUI({ days, hours, mins, secs }, timerEl) {
 
 new CountdownTimer({
   timerID: "#timer-1",
-  targetDate: new Date("Jan 1, 2022"),
-  onTick: uptadeTimerUI,
-});
-
-new CountdownTimer({
-  timerID: "#timer-2",
   targetDate: new Date("Jan 1, 2023"),
   onTick: uptadeTimerUI,
 });
 
 new CountdownTimer({
+  timerID: "#timer-2",
+  targetDate: new Date("Jan 1, 2024"),
+  onTick: uptadeTimerUI,
+});
+
+new CountdownTimer({
   timerID: "#timer-3",
-  targetDate: new Date("Aug 8, 2022"),
+  targetDate: new Date("Aug 16, 2022"),
   onTick: uptadeTimerUI,
 });
